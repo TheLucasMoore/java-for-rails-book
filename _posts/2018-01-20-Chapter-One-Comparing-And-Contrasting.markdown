@@ -8,7 +8,7 @@ date:   2018-01-24 21:40:08 -0700
 
 In learning a new language, whether coding or speaking, the first and most important concepts to get a grasp on are the grammar and syntax. A high level understanding of attributes of the language will build deeper understanding in your mind. As a Rubyist, you should already be quite familiar with Object Oriented Design, so many of the concepts in Java will be easy to pick up here.
 
-## Language attributes
+## Language attributes: Ruby and Java
 
 Both Ruby and Java are designed around objects, where each object is called a `class`. Within those classes or objects, we have actions, which are called methods in both Ruby and Java. Those methods have inputs, called arguments in Ruby and *parameters* in Java. So far, most of the vocabulary we use to talk about Ruby will apply to Java.
 
@@ -254,12 +254,16 @@ After running this command, you'll notice a new file called `HelloWorld.class` i
 
 Finally, we can run our compiled Java code with the `java` command.
 
-```
+```bash
 $ java HelloWorld
 Hello World! Java is easy!
-```  
+```
 
 Notice that `javac` will compile code and `java` will execute compiled code. This differs from Ruby, where we can run code in an interactive console quite simply.
+
+# WHAT IS LEFT TO WRITE
+* [ ] Rails and Spring (too early for that I think?)
+* [ ] Inheritance?
 
 ### Chapter One Sources
 * [Wikibooks on Compiling](https://en.wikibooks.org/wiki/Java_Programming/Compilation)
