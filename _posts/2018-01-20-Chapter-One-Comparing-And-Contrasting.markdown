@@ -6,24 +6,24 @@ date:   2018-01-24 21:40:08 -0700
 
 ## Chapter One: Comparing and Contrasting
 
-In learning a new language, whether coding or speaking, the first and most important concepts to get a grasp on are the grammar and syntax. A high level understanding of attributes of the language will build deeper understanding in your mind. As a Rubyist, you should already be quite familiar with Object Oriented Design, so many of the concepts in Java will be easy to pick up here.
+This book rests on the notion that the prior knowledge you possess as a Rubyist can be leveraged to accelerate your mastery of Java. For example, you are probably quite familiar with Objected Oriented Design in a Ruby context. When switching to Java, the basic design principles are the same, but the grammar and syntax are different. For the rest of this book we will use analogies that compare Ruby and Rails concepts to their Java counterparts. Let's begin!
 
 ## Language attributes: Ruby and Java
 
-Both Ruby and Java are designed around objects, where each object is called a `class`. Within those classes or objects, we have actions, which are called methods in both Ruby and Java. Those methods have inputs, called arguments in Ruby and *parameters* in Java. So far, most of the vocabulary we use to talk about Ruby will apply to Java.
+Ruby and Java are designed around objects. In both languages, an object is called a `class`. Within a class we have actions, which are called `methods`. In Ruby we know the inputs given to a method as `arguments`. In Java we call method inputs `parameters`.
 
 ## Initializing a Class
 
-To see how similar Ruby and Java are, let's run through an example `Multiply` object which will take two inputs of numbers. It also has an method of `do_the_math`, which will execute the simple math of multiplying our two numbers.
+To see how similar classes and methods are in Ruby and Java are, let's run through an example `Calculator` object which will take two numbers as inputs. Our `Calculator` will start with one method, `multiply`, which will execute the simple calculation of multiplying our two numerical inputs.
 
 # Ruby
 ```ruby
 ### Ruby ###
 # let's declare a class
-class Multiply
+class Calculator
 
-  # the initialize methods lets us call Multiply.new() with two arguments,
-  # which will instantiate a new instance of the Multiply class
+  # the initialize method lets us call Calculator.new() with two arguments,
+  # which will instantiate a new instance of the Calculator class
   def initialize(number_one, number_two)
     # our instance has the following instance variables
     @number_one = number_one
@@ -31,55 +31,58 @@ class Multiply
   end
 
   # this method can be called on each instance
-  def do_the_math
+  def multiply
     @number_one * @number_two
+    # a return statement is not required since
     # this implicitly returns the product of our two numbers
   end
 end
 ```
 
-When running this code, we would interact with it as follows:
+When running this code, we can interact with it as follows:
 
 ```ruby
 ### Ruby ###
-> first_multiplier = Multiply.new(2, 3)
- => #<Multiply:0x007fce50a6ee08 @number_one=2, @number_two=3>
-> first_multiplier.do_the_math
+> calculator_1 = Calculator.new(2, 3)
+ => #<Calculator:0x007fce50a6ee08 @number_one=2, @number_two=3>
+> calculator_1.multiply
  => 6
 ```
 
-When we initialize a new object, notice how it has a different class identifier of `Multiply:0x007fce50a4f530`. This is a new instance of the same `Multiply` class.
+In the next code example, when we initialize a new object, notice how it has a different class identifier of `Calculator:0x007fce50a4f530` as opposed to `Calculator:0x007fce50a6ee08`. This is a new instance of the same `Calculator` class.
 
 ```ruby
 ### Ruby ###
-> second_multiplier = Multiply.new(10, 10)
+> calculator_2 = Calculator.new(10, 10)
  => #<Multiply:0x007fce50a4f530 @number_one=10, @number_two=10>
-> second_multiplier.do_the_math
+> calculator_2.multiply
  => 100
  ```
 
-If we try to initialize this object with the wrong number of arguments, the class will *raise an error* in the `<main>` part of our program, specifically an `ArgumentError`.
+If we try to initialize this object with the wrong number of arguments, the class will *raise an error* in the `<main>` part of our program called an `ArgumentError`.
 
 ```ruby
 ### Ruby ###
 > Multiply.new
 ArgumentError: wrong number of arguments (0 for 2)
-	from (irb):5:in `initialize'
-	from (irb):16:in `new'
+	from (irb):5:in 'initialize'
+	from (irb):16:in 'new'
 	from (irb):16
-	from /Users/ruby-2.2.3/bin/irb:15:in `<main>'
+	from /Users/ruby-2.2.3/bin/irb:15:in '<main>'
 ```
 
-In Ruby, we just built a new object by defining and initializing a class. We passed arguments into the initializer, which set them as class variables. Then we called a method that executed some math on that instance or object. Let's do the same thing in Java now.
+In Ruby, we just built a new object by defining a class and then initializing it. We passed arguments into the initializer method `new`, which set them as instance variables (sometimes called ivars). Then we called the method `multiply` that executed some calculation on that instance.
+
+Let's do the same thing in Java!
 
 # Java
 
-Java is more verbose, so don't worry much about the extra elements you see here. Those will be covered in depth in Chapter Two.
+Java is more verbose, but don't worry much about the extra elements you see here. Those will be covered in depth in Chapter Two.
 
 ```java
 //// Java ////
 // let's declare a class again, which is public
-public class Multiply {
+public class Calculator {
 
   // our member variables of type int
   public int numberOne;
@@ -92,29 +95,30 @@ public class Multiply {
     this.numberTwo = numberTwo;
   }
 
-  // lastly, the method to execute the math will return an integer (int)
-  public int doTheMath() {
+  // lastly, the method to execute the calculation will return an integer (int)
+  public int calculate() {
     return this.numberOne * this.numberTwo;
-    // we MUST have a return statement
+    // Unlike in Ruby, which has an implicit return, in Juava we MUST
+    // explicitly have a return statement
   }
 }
 
 ```
 
-We would then instantiate or create two similar instances to those we made in Ruby above. Notice how the variable declarations all have the Type, which is `Multiply` in this example (more on Typing in the next section).
+Now, lets make two instances of the `Calculator` class we defined above, just like we did in our previous Ruby example. Notice how the variable declarations all have the `Type`, which is `Calculator` in this example (more on Typing in the next section).
 
 ```java
 //// Java ////
-Multiply firstMultiplier = new Multiply(2, 3);
-Multiply secondMultiplier = new Multiply(10, 10);
+Calculator firstCalculator = new Calculator(2, 3);
+Calculator secondCalculator = new Calculator(10, 10);
 ```
 
-Then to execute the math function `doTheMath`, we could call it with the `()` at the end, which executes the function.
+Then to execute the function `multiply`, we could call it with `()` at the end, which executes the function.
 
 ```java
 //// Java ////
-firstMultiplier.doTheMath(); // returns 6
-secondMultiplier.dotheMath(); // returns 100
+firstCalculator.multiply(); // returns 6
+secondCalculator.multiply(); // returns 100
 ```
 
 ## Comparing Ruby & Java Classes
