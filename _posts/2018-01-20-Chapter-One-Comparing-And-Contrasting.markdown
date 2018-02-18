@@ -123,28 +123,33 @@ secondCalculator.multiply(); // returns 100
 
 ## Comparing Ruby & Java Classes
 
-This Java example is mostly identical to Ruby, except a few vocabulary terms and conventions. First, you'll notice Java conventions prefer `camelCase` instead of `snake_case` for the naming of variables and methods. Every line of Java code must end with a semicolon `;`.
+This Java example should feel very familiar to what we are used to in Ruby, with a few notable differences. First, in Java we prefer name variables and methods in `camelCase` rather than  `snake_case`. Also, every line of Java code must end with a semicolon `;`.
 
-Variables on an instance are called *member variables* or *fields* instead of "instance variables" like in Ruby.
+What we know as `instance variables` or `ivars` in Ruby, are are called *member variables* or *fields* in Java.
 
-The data we pass into a method are called "arguments" in Ruby, but *parameters* in Java.
+Method inputs, called "arguments" in Ruby, are known as *parameters* in Java.
 
-In Ruby, we built a new object by defining and initializing a class. We passed arguments into the initializer, which set them as class variables. Then we called a method that executed some math on that instance or object.
+In Ruby, we built a new object by defining and initializing a class. We passed arguments into the initializer, which set them as instance variables. Then we called a method that executed some math on that instance or object.
 
 In Java, we built a new object by defining and initializing a class. We passed parameters into the constructor, which set them as member variables. Then we called a method that executed some math on that instance or object!
 
+|Concept|Ruby|Java|
+|---|---|---|
+|Name variables and methods with| snake_case | camelCase  |
+|End lines of code with| nothing!  | `;`  |
+|Variables accessible to an instance of a class|instance variables or ivars|member variables |
+|Method inputs|arguments|parameters|
+
 ## Typing
 
-Ruby is a *dynamically typed* language and Java is a *statically typed* language. Here the `typing` of course refers to data types, not the act of typing. Both languages share many of the same data types like `Boolean`, `Float` and `String`.
+Ruby is a *dynamically typed* language, which means that it will implicitly infer the data types described in code. On the other hand, Java is a *statically typed* language. Java will not guess that your variable is an integer. You must tell Java that the variable is an integer. Both languages share many of the same data types like `Boolean`, `Float` and `String`, so just because Java's approach is more prescriptive does not mean your knowledge of data types in Ruby goes to waste.
 
-These differences are revealed in the grammar of the languages. It's also worth noting that dynamic and static typing is about whether the types are checked at run time or compile time.
-
-Terms like *weakly typed* and *strongly typed* refer to whether a language will implicitly try to infer the types and do silly things like adding strings to numbers (like [in JavaScript](https://www.destroyallsoftware.com/talks/wat)). I've heard the phrases used interchangeably, but it's worth knowing the difference, especially if it comes up in a technical interview.
+Terms like *weakly typed* and *strongly typed* refer to whether a language will implicitly try to infer data types and how the language will handle doing silly things like adding strings to numbers ([Famous JavaScript Wat Talk](https://www.destroyallsoftware.com/talks/wat)). I've heard the phrases used interchangeably, but it's worth knowing the difference, especially if it comes up in a technical interview.
 
 Here's some examples so this idea should be more clear.
 
 ### Ruby Typing
-Ruby is *dynamically typed* because the data types are established at run time and NOT during compilation because Ruby is not compiled.
+Ruby is *dynamically typed* because the data types are established at run time and NOT during compilation. Unlike Java, Ruby is not compiled.
 
 ```ruby
 #### Ruby ####
@@ -183,8 +188,7 @@ Ruby is *dynamically typed* because the data types are established at run time a
 > my_float.class
  => Fixnum
 ```
-
-While dynamic typing may seem easier at first, with the growing complexity of Ruby programs your team might start hitting type errors at run time.
+While dynamic typing may seem easier at first, with the growing complexity of Ruby programs your team might start hitting type errors at run time, especially if the codebase is not well tested.
 
 Trying to pass a `Boolean` into a method as an argument when it is expecting a `String` will cause run time errors or unexpected behavior, leading to more bugs and more difficult debugging. That's why the strong typing in Java can be an asset to you and your team.
 
@@ -219,11 +223,11 @@ Int seven = (int) 7.0;
 ### Run Time Language vs. Compile Time Language
 
 Another difference between Ruby and Java is that Java must be compiled.
-When you want to run Ruby code, you can just fire up a console session and play around with code. It just runs. With Java, there is an extra step of compiling your code.
+When you want to run Ruby code, you can just fire up a console session and play around with code. Type `ruby my_great_ruby_file.rb` and it just runs. With Java, there is an extra step of compiling your code.
 
 Before diving into that, let's talk about the Java ecosystem.
 
-Java is designed to run everywhere on the *Java Virtual Machine*, most often called the JVM. Java code is compiled into *bytecode* and saved as the `.class` files. Then Java's *"Just in Time Compiler"* (JIT) will load bytecode into memory as it is needed by the program.
+Java is designed to run everywhere on the *Java Virtual Machine*, most often called the JVM. Java code is compiled into *bytecode* and saved as `.class` files. Then Java's *"Just in Time Compiler"* (JIT) will load bytecode into memory as it is needed by the program.
 
 To compile code on your computer, you'll need the *Java Development Kit* or JDK. You can download the JDK, which includes tools for developing, debugging and monitoring your Java applications from [Oracle's Website](http://www.oracle.com/technetwork/java/javase/downloads/index.html). We'll need this to compile and execute our code.
 
