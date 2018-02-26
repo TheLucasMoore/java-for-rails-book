@@ -261,9 +261,18 @@ Hello World! Java is easy!
 
 Notice that `javac` will compile code and `java` will execute compiled code. This differs from Ruby, where we can run code in an interactive console quite simply.
 
-# WHAT IS LEFT TO WRITE
-* [ ] Rails and Spring (too early for that I think?)
-* [ ] Inheritance?
+# Rails and Spring
+
+Rails is the most popular framework for Ruby.
+Spring is the most popular framework for Java.
+
+## Opinions
+
+While Rails technically is one cohesive project, there are various ways to create a new Rails project. You can start a new project with `rails new` command, and pass in options about what structure you would like, whether that's `--api` only mode (no front end, just a json api) or `--no-turbo-links`.
+
+Spring is similar, but there are technically different places to start for different purposes. There's `Spring MVC` and others.
+
+## Folder Structure
 
 ### Chapter One Sources
 * [Wikibooks on Compiling](https://en.wikibooks.org/wiki/Java_Programming/Compilation)
