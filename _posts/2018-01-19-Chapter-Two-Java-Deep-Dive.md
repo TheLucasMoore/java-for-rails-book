@@ -25,6 +25,7 @@ Whether you're on Mac, Linux or Windows, your compiled jar will run the same on 
 Let's start from the beginning. How should we print out some text from our Java program?
 
 ```java
+// JAVA //
 // to print new lines
 System.out.println("Check it out!");
 System.out.println("Another new line");
@@ -40,12 +41,13 @@ System.out.printf("pi = %.5f", Math.PI); // => pi = 3.14159
 At a high level, we can declare a variable with the *type* followed by a *variable name*. We can intialize a variable and its value all at one. We can also set its value with an equals `=` after declaring it.
 
 ```java
+// JAVA //
 // do it all at once
-String foo = "FOO";
+String foo = "le foo";
 
 // or break it up
 String foo;
-foo = "FOO!";
+foo = "le foo!";
 
 // declare many variables of one type
 int first, second, third;
@@ -57,19 +59,19 @@ third = 4
 // just making sure you're reading carefully ;-)
 ```
 
-To create a variable which cannot be assigned to a new value, we can make a `final` variable.  This acts much like a constant in Ruby.
+To create a variable which cannot be assigned to a new value, we can make a `final` variable.  This acts much like a frozen constant in Ruby.
 
 ```ruby
-# ruby
+## Ruby ##
 STATE = "Colorado".freeze
 ```
 
 ```java
-// java
+// Java //
 final String STATE = "Colorado";
 ```
 
-Since types are so important in declaring variables, lets cover the types in Java.
+Since types are so important in declaring variables, lets cover the types in Java. For the rest of this chapter, all code snippets are Java code, unless specifically stated.
 
 ## Text Types
 
@@ -84,27 +86,27 @@ char ohYeah = 'o';
 Strings are almost exactly the same as in Ruby.
 
 ```java
-string cupcakes = "I would like a cupcake right now.";
+String cupcakes = "I would like a cupcake right now.";
 
 // new lines are created with an escaped \n
-string recipe = "Cupcake Recipe:\n"
+String recipe = "Cupcake Recipe:\n";
 
 // tabs are created with a \t
-string indented = "\tStep One: Add crisco in the bowl."
+String indented = "\tStep One: Add crisco in the bowl.";
 ```
 
 String can also be *concatenated* or joined together with the `+` operator.  
 
 ```java
-String concat = "Strings are " + "easy!"
+String concat = "Strings are " + "easy!";
 System.out.println(concat);
 // => "Strings are easy!"
 ```
 
 ## Number Types
-Numbers is Java are tied to the maximum size of memory that can be allocated to same that number. As a Rubyist it may seem daunting to have so much choice, but you’ll get the hang of it.
+Numbers in Java are designed around the maximum size of memory that can be allocated to store that number. As a Rubyist it may seem daunting to have so much choice, but you’ll get the hang of it.
 
-In most cases, `int` and `double` will work for you.  If you want to make your program more efficient, you could store data in a type that, at it’s largest, would fit within the memory allocated to something smaller.
+In most cases, `int` and `double` will work for what are `integer` and `float` in Ruby. The rational around all these number data types in Java is to optimize your program to use the least amount of memory where possible.
 
 All number types in Java are *signed*, meaning they can be positive and negative.
 
@@ -130,7 +132,7 @@ int oneHundoThousand = 100,000;
 ```
 
 ### Long
-A long is a signed 64-bit integer between -9,223,372,036,854,775,808 and 9,223,372,036,854,775,807
+A long is a signed 64-bit integer between -9,223,372,036,854,775,808 and 9,223,372,036,854,775,807. This is similar to Ruby’s `BigInt`. This is a good data type to use on the `id` column of your tables from the start. You can avoid an [Int-pocalypes](http://www.mccartie.com/2016/12/05/rails-5.1.html).
 
 ```java
 long aJillionish = 5,123,125,865,235,122,000
@@ -144,7 +146,7 @@ float fooFloat = 1.5f;
 ```
 
 ### Double
-A double is a 64-bit double-precision floating point number.
+A double is a 64-bit double-precision floating point number. It’s more precise, so you should prefer Double when possible.
 
 ```java
 double soPrecise = 1.2345678543256785432567
@@ -154,7 +156,7 @@ double soPrecise = 1.2345678543256785432567
 Array declaration in Java is much more strict than in Ruby. Let’s look at a ruby example first. We’ll create an array, then push in various types and access.
 
 ```ruby
-# ruby
+## Ruby ##
 2.2.3 :001 > a = []
  => []
 2.2.3 :002 > a.push("string")
@@ -171,13 +173,13 @@ Array declaration in Java is much more strict than in Ruby. Let’s look at a ru
  => true
 ```
 
-In Java we need to declare both the type and the size of the array. The above Ruby example with a mixing of types inside an array is not possible, or at least considered an anti-pattern in Java.
+## Java Arrays
+In Java, we need to declare the type of the data in the array. The above Ruby example with a mixing of types inside an array is not possible, or at least considered an anti-pattern in Java.  Java Arrays can store primitive data types (integers, floats, strings) as well as Java Objects (instances of Java classes).
 
-# IS THIS RIGHT?
-The pattern to declare an array is either
+With Java arrays, we need to declare the size of the array. The pattern to declare an array is either:
 
-`type[] name = new type[size]` or
-`type varName[] = new type[size]`
+1. `type[] name = new type[size]`  
+2. `type varName[] = new type[size]`
 
 ```java
 // java
@@ -185,9 +187,6 @@ int[] myFavNumbers = new int[100];
 
 // to add a number at a certain index
 myFavNumbers[0] = 13;
-
-// to put the integer at the end of the array
-myFavNumbers.add(7);
 ```
 
 We can also declare an array and its contents all at one.
@@ -199,16 +198,24 @@ boolean answers[] = {false, false, true};
 
 Arrays in Java are *zero-indexed*, meaning that the first element of the array is accessibile at `[0]` instead of `[1]` . I’m sure you knew that, as it’s the same in Ruby.
 
-# FROM HERE ON NEEDS WORK
-## ArrayLists
-An ArrayList is like an array, but it allows dynamic sizing of the array
+## Java ArrayLists
+An ArrayList is like an array, but it allows dynamic sizing of the array and has a different interface to interact with the array.
 
 ```java
-List<String> myFriends;
+// this array is dynamically sized
+ArrayList<String> myFriends = new ArrayList<>();
+
+// we can add elements to the ArrayList
 myFriends.add("Rumi");
 myFriends.add("Calvin");
 myFriends.add("Hobbes");
+
+// we can access certain parts of the array
+System.out.println(myFriends.get(0));
+// this will output "Rumi"
 ```
+
+ArrayLists can hold only Java Objects, not primitive data. If we `.add()`an integer into an ArrayList, it actually converts it into an instance of the Integer class under the hood.
 
 # Other Data Types
 ## LinkedList
@@ -337,3 +344,6 @@ Java has much better support for multithreaded operations. Thread safe (meaning 
 
 # Conclusion
 By now, I hope you can see how important types are in Java. By this point, I hope you’re thinking in Java and considering the types of things before writing them.
+
+# Sources
+[Array vs. ArrayList](https://www.geeksforgeeks.org/array-vs-arraylist-in-java/)
