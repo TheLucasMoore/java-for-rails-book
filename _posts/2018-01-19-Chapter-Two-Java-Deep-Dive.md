@@ -187,7 +187,7 @@ int[] myFavNumbers = new int[100];
 myFavNumbers[0] = 13;
 
 // to put the integer at the end of the array
-myFavNumbers.push(7);
+myFavNumbers.add(7);
 ```
 
 We can also declare an array and its contents all at one.
@@ -197,14 +197,17 @@ String tacoFlavors[] = {"Good", "Better", "Best"};
 boolean answers[] = {false, false, true};
 ```
 
-Arrays in Java and Ruby are *zero-indexed*, meaning that the first element of the array is accessibile at `[0]` instead of `[1]` like you might have thought. I’m sure you knew that.
+Arrays in Java are *zero-indexed*, meaning that the first element of the array is accessibile at `[0]` instead of `[1]` . I’m sure you knew that, as it’s the same in Ruby.
 
 # FROM HERE ON NEEDS WORK
 ## ArrayLists
 An ArrayList is like an array, but it allows dynamic sizing of the array
 
 ```java
-ArrayList<String> myFriends;
+List<String> myFriends;
+myFriends.add("Rumi");
+myFriends.add("Calvin");
+myFriends.add("Hobbes");
 ```
 
 # Other Data Types
@@ -269,10 +272,10 @@ class Sandwich # this will act like an interface class
   end
 end
 
-# now each type of sandwich will implement the Sandwich interface
+# now each type of sandwich will "implement" the Sandwich "interface"
 class PBJ < Sandwich
+	# this method is being over-loaded
   def bread
-    # more complex code surely...
     "white bread"
   end
 
