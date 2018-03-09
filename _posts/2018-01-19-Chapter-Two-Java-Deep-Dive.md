@@ -236,14 +236,102 @@ add, subtract, divide, multiply, exponents
 increment
 
 ## Modulo
+
 ## Comparisons
 
-# Flow Control and Loops
-if / else
+# Exercise Two: Flow Control and Loops
+For the exercise of this chapter, we’re going to play around with what we’ve learned in this chapter and get more comfortable writing, compiling and running Java.
 
-For Loop
+Not much in this section about flow control should surprise you as a Rubyist. The syntax is a little different, but the core concepts of flow control are the same.
 
-while loops
+To be clear, *flow control* is how we change the behavior of our code’s function based on certain conditions. This means we can really play around with the example code and hopefully have some fun.
+
+## if / else if / else
+This looks pretty dang similar to JavaScript and Ruby. One thing to note is the use of `else if` instead of Ruby’s `elsif`. Honestly, I think `elsif` is a made up word and goofy, so writing out `else if` feels more natural. When you get to the point of being a polyglot  software engineer, you’ll just need to check Stackoverflow for each language’s implementation of this pattern anyway.
+
+The example code in `ChapterTwoFiles` uses a simple class with the `public static void` constructor that we talked about in Chapter One. Read the code and decide what the output would be.
+
+```java
+
+public class DanceMoves {
+
+	// the method called at initialization
+	// args is the strings we pass in
+	public static void main(String[] args) {
+
+		// the first input from when we run the program
+		String music = args[0];
+
+		// declare the variable danceMove here
+		String danceMove;
+		// we'll use flow control decide its value
+
+		// notice the string comparator is NOT ==
+		if (music.equals("metal")) {
+			danceMove = "mosh";
+		} else if (music.equals("jazz")) {
+			danceMove = "sip a martini";
+		} else {
+			danceMove = "snap awkwardly";
+		}
+
+		// print out our results
+		System.out.println("Your dance move is to " + danceMove + " to " + music + ".");
+	}
+}
+
+```
+
+We will compile the java class by running `$ javac DanceMoves.java` . This gives us `DanceMoves.class`, which is our compiled file.
+
+We can run the function with custom input by saying:
+
+```bash
+$ java DanceMoves funk
+```
+
+The output will be `”Your dance move is snap awkwardly to funk”`.
+
+## Switch Statements
+Once you get into a few “if” and “else if” statements in a block of code, it’s probably time to consider using a switch statement. This method of flow control will evaluate the `case` of whatever is in our `switch()`.
+
+This is also quite similar to Ruby, but has some different syntax.
+
+```java
+// evaluating the cases of a string of weather reports
+// String weather = "something"
+// ^^^ this variable is set somewhere else
+switch (weather) {
+	case "rain":
+		// the colon is required
+		wearYourJacket();
+		// do any arbitrary code here, like call a function
+		break; // optional break inside each case
+	case "sun":
+		wearTankTop();
+		break;
+	case "snow":
+		wearRussianBearHat();
+		break;
+	default:
+		putOnPants();
+		break;
+}
+
+```
+
+# Extra Credit!
+The key to learning is to have fun. See if you can adapt our `DanceMoves`class to use a case statement with at least five genres of music.  The extra credit comes from playing around and really knowing your stuff.
+
+When you’re ready to check your work, check out the `ExtraCredit.java` file in `ChapterTwoFiles`.
+
+Other Assignments:
+* Make a method that uses two input arguments
+
+
+## For Loop
+
+## While loops
 
 # Conversion of Types
 # Methods
@@ -347,3 +435,4 @@ By now, I hope you can see how important types are in Java. By this point, I hop
 
 # Sources
 [Array vs. ArrayList](https://www.geeksforgeeks.org/array-vs-arraylist-in-java/)
+[The switch Statement  Basics)](https://docs.oracle.com/javase/tutorial/java/nutsandbolts/switch.html)
