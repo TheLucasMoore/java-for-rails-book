@@ -425,8 +425,6 @@ Now, when we compile this code, we'll see the following error.
 PBJ implements the Sandwich interface, but no method EAT is defined
 ```
 
-
-
 ## Threads
 Java has much better support for multithreaded operations. Thread safe (meaning code that can run well in parallel) concurrent code is a huge performance advantage of Java over Ruby.
 
@@ -435,4 +433,4 @@ By now, I hope you can see how important types are in Java. By this point, I hop
 
 # Sources
 [Array vs. ArrayList](https://www.geeksforgeeks.org/array-vs-arraylist-in-java/)
-[The switch Statement  Basics)](https://docs.oracle.com/javase/tutorial/java/nutsandbolts/switch.html)
+[The switch Statement  Basics)](https://docs.oracle.com/javase/tutorial/java/nutsandbolts/switch.html)redd
