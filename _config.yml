@@ -18,7 +18,7 @@ email: hey@thelucasmoore.com
 
 # Build settings
 markdown: kramdown
-theme: minima
+theme: jekyll-theme-slate
 gems:
   - jekyll-feed
 exclude:
