@@ -1,8 +1,7 @@
-# JFR: Chapter Two
 ---
 layout: post
-title:  "Chapter One - Comparing and Contrasting"
-date:   2018-02-14 21:40:08 -0700
+title:  "Chapter Two - A Java Deep Dive"
+date:   2018-01-24 20:40:08 -0700
 ---
 
 # Chapter Two: A Deep Dive into Java
@@ -12,9 +11,7 @@ So now that we've established how similar Java and Ruby are, lets talk about som
 
 This book covers Java 8, but this is technically Java 1.8. It's kind of a long story.
 
-...
-
-OK, there's your fun fact for talking shop with a Java nerds. Just like you'd crack a joke about DHH and Basecamp, right?
+... Tell the long story here?
 
 Java code compiles and runs on the Java Virtual Machine or JVM. The compiled and executable package of Java code is called a JAR. One of the appeals of writing Java is actually a tagline of Sun Microsystems - "Write Once. Run Anywhere."
 
